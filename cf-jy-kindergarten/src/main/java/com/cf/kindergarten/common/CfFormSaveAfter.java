@@ -2,10 +2,21 @@ package com.cf.kindergarten.common;
 
 
 import com.cf.core.base.service.SysUserService;
+import com.cf.core.common.annotation.CfSaveAfter;
 import com.cf.core.common.method.CommonSave;
 import com.cf.core.common.method.CommonSaveAfter;
+import com.cf.core.common.model.ResultModel;
+import com.cf.core.common.model.SeniorResultModel;
+import com.cf.core.util.ToolUtil;
+import com.cf.kindergarten.service.ClassInfoService;
+import com.cf.kindergarten.service.TeacherUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -26,6 +37,90 @@ import org.springframework.stereotype.Component;
 public class CfFormSaveAfter extends CommonSave implements CommonSaveAfter {
     @Autowired
     private SysUserService sys;
+
+    @Autowired
+    private TeacherUserService teacherUserService;
+
+    @Autowired
+    private ClassInfoService classInfoService;
+
+
+    /**
+     * 人员信息保存
+     * @param resultModel
+     * @return
+     */
+    @CfSaveAfter(funCode = "004001")
+    public SeniorResultModel SaveTeacherUser(SeniorResultModel resultModel){
+
+        Map<String, Object> beforeParams = resultModel.getBeforeParams();
+        Map<String, Object> afterParams = resultModel.getAfterParams();
+        if(ToolUtil.isEmpty(afterParams))return resultModel;
+        for (String s : afterParams.keySet()){
+            System.out.println("key:"+s+"|value:"+afterParams.get(s));
+        }
+
+        String id = afterParams.get("id").toString();
+
+        teacherUserService.SaveSysUserInfo(id);
+
+
+        return resultModel;
+    }
+
+
+    /**
+     * 班级信息保存
+     * @param resultModel
+     * @return
+     */
+    @CfSaveAfter(funCode = "005002")
+    public SeniorResultModel SaveClassInfo(SeniorResultModel resultModel){
+
+        Map<String, Object> beforeParams = resultModel.getBeforeParams();
+        Map<String, Object> afterParams = resultModel.getAfterParams();
+        if(ToolUtil.isEmpty(afterParams))return resultModel;
+        for (String s : afterParams.keySet()){
+            System.out.println("key:"+s+"|value:"+afterParams.get(s));
+        }
+
+        String id = afterParams.get("id").toString();
+
+        classInfoService.updateTeacherId(id);
+
+
+        return resultModel;
+    }
+
+    /**
+     * 幼儿人员信息保存
+     * @param resultModel
+     * @return
+     */
+    @CfSaveAfter(funCode = "004002")
+    public SeniorResultModel SaveChildrenUser(SeniorResultModel resultModel){
+
+        Map<String, Object> beforeParams = resultModel.getBeforeParams();
+        Map<String, Object> afterParams = resultModel.getAfterParams();
+        if(ToolUtil.isEmpty(afterParams))return resultModel;
+
+        List list = (ArrayList) beforeParams.get("data");
+
+        List<Map> result2 = new ArrayList<Map>();
+
+        for (int i = 0; i < list.size(); i++) {
+            Map<String,Object> result  = (Map)list.get(i);
+            if (result.get("values") instanceof List) {
+                result2  =(List) result.get("values");
+            }
+        }
+        String id = afterParams.get("id").toString();
+
+        teacherUserService.SaveParentSysUserInfo(result2,id);
+
+        return resultModel;
+    }
+
 
 }
 

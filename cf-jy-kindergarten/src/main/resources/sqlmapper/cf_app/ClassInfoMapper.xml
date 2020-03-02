@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cf.kindergarten.mybatis.cf_app.ClassInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cf.kindergarten.mybatis.cf_app.ClassInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="className" jdbcType="VARCHAR" property="className" />
+    <result column="headMaster" jdbcType="VARCHAR" property="headMaster" />
+    <result column="classTeacher" jdbcType="VARCHAR" property="classTeacher" />
+    <result column="classTeacherName" jdbcType="VARCHAR" property="classTeacherName" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="babyNum" jdbcType="VARCHAR" property="babyNum" />
+    <result column="createUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="createTime" jdbcType="VARCHAR" property="createTime" />
+    <result column="updateUser" jdbcType="VARCHAR" property="updateUser" />
+    <result column="updateTime" jdbcType="VARCHAR" property="updateTime" />
+    <result column="createDept" jdbcType="VARCHAR" property="createDept" />
+    <result column="updateDept" jdbcType="VARCHAR" property="updateDept" />
+    <result column="delFlag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="ynEnable" jdbcType="VARCHAR" property="ynEnable" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="funp" jdbcType="VARCHAR" property="funp" />
+    <result column="fun" jdbcType="VARCHAR" property="fun" />
+    <result column="findCode" jdbcType="VARCHAR" property="findCode" />
+    <result column="groupId" jdbcType="VARCHAR" property="groupId" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="verifyUser" jdbcType="VARCHAR" property="verifyUser" />
+    <result column="verifyTime" jdbcType="VARCHAR" property="verifyTime" />
+    <result column="def1" jdbcType="VARCHAR" property="def1" />
+    <result column="def2" jdbcType="VARCHAR" property="def2" />
+    <result column="def3" jdbcType="VARCHAR" property="def3" />
+    <result column="def4" jdbcType="VARCHAR" property="def4" />
+    <result column="def5" jdbcType="VARCHAR" property="def5" />
+    <result column="def6" jdbcType="VARCHAR" property="def6" />
+    <result column="def7" jdbcType="VARCHAR" property="def7" />
+    <result column="def8" jdbcType="VARCHAR" property="def8" />
+    <result column="def9" jdbcType="VARCHAR" property="def9" />
+    <result column="def11" jdbcType="VARCHAR" property="def11" />
+    <result column="def12" jdbcType="VARCHAR" property="def12" />
+    <result column="def13" jdbcType="VARCHAR" property="def13" />
+    <result column="def14" jdbcType="VARCHAR" property="def14" />
+    <result column="def15" jdbcType="VARCHAR" property="def15" />
+    <result column="def16" jdbcType="VARCHAR" property="def16" />
+    <result column="def17" jdbcType="VARCHAR" property="def17" />
+    <result column="def18" jdbcType="VARCHAR" property="def18" />
+    <result column="def19" jdbcType="VARCHAR" property="def19" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, grade, className, headMaster, classTeacher, classTeacherName, company, babyNum, 
+    createUser, createTime, updateUser, updateTime, createDept, updateDept, delFlag, 
+    ynEnable, status, funp, fun, findCode, groupId, memo, verifyUser, verifyTime, def1, 
+    def2, def3, def4, def5, def6, def7, def8, def9, def11, def12, def13, def14, def15, 
+    def16, def17, def18, def19
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from class_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from class_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cf.kindergarten.mybatis.cf_app.ClassInfo">
+    insert into class_info (id, grade, className, 
+      headMaster, classTeacher, classTeacherName, 
+      company, babyNum, createUser, 
+      createTime, updateUser, updateTime, 
+      createDept, updateDept, delFlag, 
+      ynEnable, status, funp, 
+      fun, findCode, groupId, 
+      memo, verifyUser, verifyTime, 
+      def1, def2, def3, def4, 
+      def5, def6, def7, def8, 
+      def9, def11, def12, 
+      def13, def14, def15, 
+      def16, def17, def18, 
+      def19)
+    values (#{id,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR}, 
+      #{headMaster,jdbcType=VARCHAR}, #{classTeacher,jdbcType=VARCHAR}, #{classTeacherName,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{babyNum,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{createDept,jdbcType=VARCHAR}, #{updateDept,jdbcType=VARCHAR}, #{delFlag,jdbcType=VARCHAR}, 
+      #{ynEnable,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{funp,jdbcType=VARCHAR}, 
+      #{fun,jdbcType=VARCHAR}, #{findCode,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{verifyUser,jdbcType=VARCHAR}, #{verifyTime,jdbcType=VARCHAR}, 
+      #{def1,jdbcType=VARCHAR}, #{def2,jdbcType=VARCHAR}, #{def3,jdbcType=VARCHAR}, #{def4,jdbcType=VARCHAR}, 
+      #{def5,jdbcType=VARCHAR}, #{def6,jdbcType=VARCHAR}, #{def7,jdbcType=VARCHAR}, #{def8,jdbcType=VARCHAR}, 
+      #{def9,jdbcType=VARCHAR}, #{def11,jdbcType=VARCHAR}, #{def12,jdbcType=VARCHAR}, 
+      #{def13,jdbcType=VARCHAR}, #{def14,jdbcType=VARCHAR}, #{def15,jdbcType=VARCHAR}, 
+      #{def16,jdbcType=VARCHAR}, #{def17,jdbcType=VARCHAR}, #{def18,jdbcType=VARCHAR}, 
+      #{def19,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cf.kindergarten.mybatis.cf_app.ClassInfo">
+    insert into class_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="className != null">
+        className,
+      </if>
+      <if test="headMaster != null">
+        headMaster,
+      </if>
+      <if test="classTeacher != null">
+        classTeacher,
+      </if>
+      <if test="classTeacherName != null">
+        classTeacherName,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="babyNum != null">
+        babyNum,
+      </if>
+      <if test="createUser != null">
+        createUser,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+      <if test="updateUser != null">
+        updateUser,
+      </if>
+      <if test="updateTime != null">
+        updateTime,
+      </if>
+      <if test="createDept != null">
+        createDept,
+      </if>
+      <if test="updateDept != null">
+        updateDept,
+      </if>
+      <if test="delFlag != null">
+        delFlag,
+      </if>
+      <if test="ynEnable != null">
+        ynEnable,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="funp != null">
+        funp,
+      </if>
+      <if test="fun != null">
+        fun,
+      </if>
+      <if test="findCode != null">
+        findCode,
+      </if>
+      <if test="groupId != null">
+        groupId,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="verifyUser != null">
+        verifyUser,
+      </if>
+      <if test="verifyTime != null">
+        verifyTime,
+      </if>
+      <if test="def1 != null">
+        def1,
+      </if>
+      <if test="def2 != null">
+        def2,
+      </if>
+      <if test="def3 != null">
+        def3,
+      </if>
+      <if test="def4 != null">
+        def4,
+      </if>
+      <if test="def5 != null">
+        def5,
+      </if>
+      <if test="def6 != null">
+        def6,
+      </if>
+      <if test="def7 != null">
+        def7,
+      </if>
+      <if test="def8 != null">
+        def8,
+      </if>
+      <if test="def9 != null">
+        def9,
+      </if>
+      <if test="def11 != null">
+        def11,
+      </if>
+      <if test="def12 != null">
+        def12,
+      </if>
+      <if test="def13 != null">
+        def13,
+      </if>
+      <if test="def14 != null">
+        def14,
+      </if>
+      <if test="def15 != null">
+        def15,
+      </if>
+      <if test="def16 != null">
+        def16,
+      </if>
+      <if test="def17 != null">
+        def17,
+      </if>
+      <if test="def18 != null">
+        def18,
+      </if>
+      <if test="def19 != null">
+        def19,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="headMaster != null">
+        #{headMaster,jdbcType=VARCHAR},
+      </if>
+      <if test="classTeacher != null">
+        #{classTeacher,jdbcType=VARCHAR},
+      </if>
+      <if test="classTeacherName != null">
+        #{classTeacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="babyNum != null">
+        #{babyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createDept != null">
+        #{createDept,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDept != null">
+        #{updateDept,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="ynEnable != null">
+        #{ynEnable,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="funp != null">
+        #{funp,jdbcType=VARCHAR},
+      </if>
+      <if test="fun != null">
+        #{fun,jdbcType=VARCHAR},
+      </if>
+      <if test="findCode != null">
+        #{findCode,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyUser != null">
+        #{verifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyTime != null">
+        #{verifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="def1 != null">
+        #{def1,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null">
+        #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null">
+        #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null">
+        #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null">
+        #{def5,jdbcType=VARCHAR},
+      </if>
+      <if test="def6 != null">
+        #{def6,jdbcType=VARCHAR},
+      </if>
+      <if test="def7 != null">
+        #{def7,jdbcType=VARCHAR},
+      </if>
+      <if test="def8 != null">
+        #{def8,jdbcType=VARCHAR},
+      </if>
+      <if test="def9 != null">
+        #{def9,jdbcType=VARCHAR},
+      </if>
+      <if test="def11 != null">
+        #{def11,jdbcType=VARCHAR},
+      </if>
+      <if test="def12 != null">
+        #{def12,jdbcType=VARCHAR},
+      </if>
+      <if test="def13 != null">
+        #{def13,jdbcType=VARCHAR},
+      </if>
+      <if test="def14 != null">
+        #{def14,jdbcType=VARCHAR},
+      </if>
+      <if test="def15 != null">
+        #{def15,jdbcType=VARCHAR},
+      </if>
+      <if test="def16 != null">
+        #{def16,jdbcType=VARCHAR},
+      </if>
+      <if test="def17 != null">
+        #{def17,jdbcType=VARCHAR},
+      </if>
+      <if test="def18 != null">
+        #{def18,jdbcType=VARCHAR},
+      </if>
+      <if test="def19 != null">
+        #{def19,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cf.kindergarten.mybatis.cf_app.ClassInfo">
+    update class_info
+    <set>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        className = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="headMaster != null">
+        headMaster = #{headMaster,jdbcType=VARCHAR},
+      </if>
+      <if test="classTeacher != null">
+        classTeacher = #{classTeacher,jdbcType=VARCHAR},
+      </if>
+      <if test="classTeacherName != null">
+        classTeacherName = #{classTeacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="babyNum != null">
+        babyNum = #{babyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        createUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        updateUser = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        updateTime = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createDept != null">
+        createDept = #{createDept,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDept != null">
+        updateDept = #{updateDept,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        delFlag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="ynEnable != null">
+        ynEnable = #{ynEnable,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="funp != null">
+        funp = #{funp,jdbcType=VARCHAR},
+      </if>
+      <if test="fun != null">
+        fun = #{fun,jdbcType=VARCHAR},
+      </if>
+      <if test="findCode != null">
+        findCode = #{findCode,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        groupId = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyUser != null">
+        verifyUser = #{verifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyTime != null">
+        verifyTime = #{verifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="def1 != null">
+        def1 = #{def1,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null">
+        def2 = #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null">
+        def3 = #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null">
+        def4 = #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null">
+        def5 = #{def5,jdbcType=VARCHAR},
+      </if>
+      <if test="def6 != null">
+        def6 = #{def6,jdbcType=VARCHAR},
+      </if>
+      <if test="def7 != null">
+        def7 = #{def7,jdbcType=VARCHAR},
+      </if>
+      <if test="def8 != null">
+        def8 = #{def8,jdbcType=VARCHAR},
+      </if>
+      <if test="def9 != null">
+        def9 = #{def9,jdbcType=VARCHAR},
+      </if>
+      <if test="def11 != null">
+        def11 = #{def11,jdbcType=VARCHAR},
+      </if>
+      <if test="def12 != null">
+        def12 = #{def12,jdbcType=VARCHAR},
+      </if>
+      <if test="def13 != null">
+        def13 = #{def13,jdbcType=VARCHAR},
+      </if>
+      <if test="def14 != null">
+        def14 = #{def14,jdbcType=VARCHAR},
+      </if>
+      <if test="def15 != null">
+        def15 = #{def15,jdbcType=VARCHAR},
+      </if>
+      <if test="def16 != null">
+        def16 = #{def16,jdbcType=VARCHAR},
+      </if>
+      <if test="def17 != null">
+        def17 = #{def17,jdbcType=VARCHAR},
+      </if>
+      <if test="def18 != null">
+        def18 = #{def18,jdbcType=VARCHAR},
+      </if>
+      <if test="def19 != null">
+        def19 = #{def19,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cf.kindergarten.mybatis.cf_app.ClassInfo">
+    update class_info
+    set grade = #{grade,jdbcType=VARCHAR},
+      className = #{className,jdbcType=VARCHAR},
+      headMaster = #{headMaster,jdbcType=VARCHAR},
+      classTeacher = #{classTeacher,jdbcType=VARCHAR},
+      classTeacherName = #{classTeacherName,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      babyNum = #{babyNum,jdbcType=VARCHAR},
+      createUser = #{createUser,jdbcType=VARCHAR},
+      createTime = #{createTime,jdbcType=VARCHAR},
+      updateUser = #{updateUser,jdbcType=VARCHAR},
+      updateTime = #{updateTime,jdbcType=VARCHAR},
+      createDept = #{createDept,jdbcType=VARCHAR},
+      updateDept = #{updateDept,jdbcType=VARCHAR},
+      delFlag = #{delFlag,jdbcType=VARCHAR},
+      ynEnable = #{ynEnable,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      funp = #{funp,jdbcType=VARCHAR},
+      fun = #{fun,jdbcType=VARCHAR},
+      findCode = #{findCode,jdbcType=VARCHAR},
+      groupId = #{groupId,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      verifyUser = #{verifyUser,jdbcType=VARCHAR},
+      verifyTime = #{verifyTime,jdbcType=VARCHAR},
+      def1 = #{def1,jdbcType=VARCHAR},
+      def2 = #{def2,jdbcType=VARCHAR},
+      def3 = #{def3,jdbcType=VARCHAR},
+      def4 = #{def4,jdbcType=VARCHAR},
+      def5 = #{def5,jdbcType=VARCHAR},
+      def6 = #{def6,jdbcType=VARCHAR},
+      def7 = #{def7,jdbcType=VARCHAR},
+      def8 = #{def8,jdbcType=VARCHAR},
+      def9 = #{def9,jdbcType=VARCHAR},
+      def11 = #{def11,jdbcType=VARCHAR},
+      def12 = #{def12,jdbcType=VARCHAR},
+      def13 = #{def13,jdbcType=VARCHAR},
+      def14 = #{def14,jdbcType=VARCHAR},
+      def15 = #{def15,jdbcType=VARCHAR},
+      def16 = #{def16,jdbcType=VARCHAR},
+      def17 = #{def17,jdbcType=VARCHAR},
+      def18 = #{def18,jdbcType=VARCHAR},
+      def19 = #{def19,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+  <update id="updateBatchClassInfoList"  parameterType="java.util.List">
+    <foreach collection="list" item="item" separator=";">
+      update cfapp_kindergarten.class_info
+      <set>
+        classTeacher = #{item.classTeacher,jdbcType=VARCHAR},
+        classTeacherName = #{item.classTeacherName,jdbcType=VARCHAR}
+      </set>
+      where id = #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+
+  <select id="selectCorpByChildId" parameterType="java.lang.String" resultType="java.lang.String">
+      select b.company
+      from cfapp_kindergarten.children_info a,cfapp_kindergarten.class_info b
+      where a.classId = b.id and a.id = #{value,jdbcType=VARCHAR} LIMIT 1
+  </select>
+
+  <select id="selectClassInfoExistsCount" parameterType="com.cf.kindergarten.mybatis.cf_app.ClassInfo" resultType="java.lang.Integer">
+    select count(1) from cfapp_kindergarten.class_info where className = #{className,jdbcType=VARCHAR}
+    <if test="id != null">
+       and id != #{id,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <update id="updateClassInfoByChildNum"  parameterType="java.lang.String">
+     update cfapp_kindergarten.class_info  a set a.babyNum = (select count(1) from cfapp_kindergarten.children_info b where b.classId = #{value,jdbcType=VARCHAR} and b.status = '0001')
+     where a.id = #{value,jdbcType=VARCHAR}
+  </update>
+
+</mapper>
