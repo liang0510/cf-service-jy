@@ -35,7 +35,7 @@
         <ehcache.version>3.3.1</ehcache.version>
         <ehcache.core.version>2.6.11</ehcache.core.version>
         <druid.version>1.1.6</druid.version>
-        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
         <commons.io.version>2.5</commons.io.version>
         <commons-lang3.version>3.6</commons-lang3.version>
         <swagger.version>2.7.0</swagger.version>
