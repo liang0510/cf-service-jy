@@ -30,7 +30,7 @@
         <shiro.version>1.4.0</shiro.version>
         <mybatis-plus.version>2.1.0</mybatis-plus.version>
         <mybatis.version>3.4.5</mybatis.version>
-        <fastjson.version>1.2.41</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <ehcache.version>3.3.1</ehcache.version>
         <ehcache.core.version>2.6.11</ehcache.core.version>
